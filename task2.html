@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPL Stock Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+        form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="file"], input[type="submit"] {
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            border: none;
+            color: #fff;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        h2 {
+            margin-top: 40px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>APPL Stock Price Prediction</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="data_file">Upload your CSV file:</label>
+        <input type="file" id="data_file" name="data_file" accept=".csv" required><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+    <h2>Predicted Stock Price: ${{ "%.2f"|format(prediction) }}</h2>
+    {% endif %}
+</body>
+</html>
